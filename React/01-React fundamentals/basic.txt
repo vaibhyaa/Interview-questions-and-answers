@@ -1,5 +1,3 @@
-hr@64sqs.com
-
 
 )what is react ?
 react is an open-source javascript library used for building UI.
