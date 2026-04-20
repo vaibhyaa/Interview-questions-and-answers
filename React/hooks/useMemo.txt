@@ -1,0 +1,100 @@
+4 useMemo
+161) What is useMemo?
+useMemo is a React Hook that memoizes the result of a computation and returns the cached value until its dependencies change.
+avoid unnecessary recalculation
+optimize expensive computations
+preserve reference stability for derived values
+
+
+
+162) Why do we use useMemo?
+We use useMemo mainly for performance optimization.
+if computation is expensive
+the component re-renders frequently
+recalculating every render is unnecessary
+we want stable object/array references for child components
+Common reasons:
+Avoid expensive recalculation
+Prevent unnecessary child re-renders
+Maintain referential equality for objects/arrays passed as props
+
+
+
+
+163) Does useMemo improve performance always?
+No. useMemo does not always improve performance
+it can make worse:-
+React must store the cached value
+React must compare dependencies on every render
+memoization itself has overhead
+for cheap computations, the overhead may cost more than recomputing
+Use useMemo only when:
+computation is expensive
+or reference stability matters
+
+
+
+
+
+164) What kind of computations should be memoized?
+You should memoize computations that are:
+expensive
+repeated on many renders
+based on dependencies that don’t change often
+:-
+filtering large lists
+sorting large arrays
+complex mapping/transformation
+heavy calculations
+derived objects/arrays passed to memoized children
+data aggregation
+expensive formatting/parsing
+
+
+
+
+165) What is overusing useMemo?
+Overusing useMemo means adding memoization everywhere, even when the computation is cheap or there is no real performance problem.
+
+
+
+166) useMemo vs normal variable?
+Normal variable: recalculated on every render
+useMemo: recalculates only when dependencies change
+Key difference:
+normal variable = simple, recalculates every render
+useMemo = cached result across renders
+When to use normal variable:-
+cheap computations
+no performance issue
+readability is more important
+When to use useMemo:-
+expensive calculations
+stable references matter
+
+
+
+167) useMemo vs useCallback?
+Both are memoization Hooks, but they memoize different things.
+useMemo
+Memoizes a value/result
+useCallback
+Memoizes a function
+
+
+
+
+168) What happens if dependencies are wrong in useMemo?
+If dependencies are wrong, useMemo can return:
+stale values (if a dependency is missing)
+unnecessary recomputation (if extra/unstable dependencies are included)
+
+
+
+169) Can useMemo be used as a guarantee? (No, optimization hint)
+No. useMemo is not a guarantee — it is only a performance optimization hint.
+
+
+
+useMemo vs useCallback
+useMemo memoizes a value, useCallback memoizes a function reference.

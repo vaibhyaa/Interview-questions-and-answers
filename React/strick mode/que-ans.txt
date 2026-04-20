@@ -1,0 +1,5 @@
+What is React Strict Mode?
+355. Why does React call effects twice in development?
+356. Is Strict Mode behavior same in production?
+357. What bugs does Strict Mode help detect?
+358. How should code be written to be Strict Mode safe?

@@ -1,0 +1,46 @@
+)stale state means :
+old / outdated / no longer current
+Stale state refers to old or outdated state values being used instead of the latest ones.
+It usually happens in async code where closures capture previous state.
+
+
+)What is closure and how does it affect hooks?
+A closure is when a function remembers variables from its outer scope.
+In React hooks, closures can capture old state/props, leading to stale values if not handled properly.
+
+
+)What is stale closure in React?
+A stale closure happens when a function captures state/props from an old render.
+This often occurs in setTimeout, useEffect, or event handlers, causing outdated values.
+
+
+)What is shallow comparison?
+Shallow comparison checks only top-level references, not nested values.
+React uses it in optimizations like React.memo to detect changes.
+
+
+
+)Why does mutating arrays/objects break React update expectations?
+Mutation keeps the same reference, so React may not detect changes.
+This can prevent re-renders or cause inconsistent UI.
+
+
+)How do spread operator and immutability help React?
+The spread operator creates a new copy of state instead of mutating it.
+This ensures React detects changes and re-renders correctly.
+
+
+
+)Why do callbacks capture old state values sometimes?
+Callbacks form closures during render and capture the state at that time.
+If state updates later, the callback still uses the old captured value.
+
+)What is event loop relevance in React async updates?
+React updates (like setState) are asynchronous and scheduled via the event loop.
+Understanding this helps explain batching and delayed UI updates.
+
+
+
+)How does microtask/macrotask knowledge help in debugging UI?
+Promises (microtasks) run before setTimeout (macrotasks).
+This helps debug timing issues, like why some updates happen earlier than expected.

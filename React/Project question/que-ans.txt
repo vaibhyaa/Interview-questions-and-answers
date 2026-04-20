@@ -1,0 +1,123 @@
+How do you structure a React codebase for scalability?
+src/
+ ├── features/
+ │    ├── auth/
+ │    ├── bookings/
+ │    ├── dashboard/
+ ├── components/ (shared)
+ ├── services/ (API layer)
+ ├── hooks/
+ ├── utils/
+
+
+
+482. How do you decide between Context, Redux Toolkit, and React Query?
+Context API → small/global state (theme, auth)
+Redux Toolkit → complex client state (forms, UI logic, large apps)
+React Query → server state (API data, caching, async)
+Context/Redux = client state, React Query = server state
+
+
+483. How do you separate server state from client state?
+server state:
+Comes from API
+Needs caching, refetching
+
+👉 Client state:
+UI state (modals, filters, inputs)
+
+👉 Practice:
+Use React Query for server data
+Use Context/Redux for UI state
+
+
+
+484. How do you avoid unnecessary re-renders in complex dashboards?
+React.memo for components
+useMemo for expensive calculations
+useCallback for stable functions
+Split components (avoid large parent re-renders)
+
+
+
+485. How do you handle authentication with access token + refresh token in React?
+Flow:
+Store access token in memory
+Store refresh token in httpOnly cookie
+On 401 → call /refresh → retry request
+👉 Key:
+Short-lived access token
+Secure refresh token
+
+
+
+486. How do you manage permissions and role-based UI?
+
+487. How do you handle form-heavy enterprise modules?
+Use:
+React Hook Form (performance)
+Schema validation (Yup/Zod)
+👉 Benefits:
+Less re-render
+Better validation handling
+
+
+
+488. How do you create reusable components without over-abstraction?
+Rule:
+Don’t abstract too early
+Extract only when reused 2–3 times
+👉 Keep:
+Props simple
+Avoid too many configs
+
+
+489. How do you debug performance issues in production?
+Tools:
+React DevTools Profiler
+Chrome Performance tab
+Logging + monitoring tools
+👉 Check:
+Re-renders
+Large lists
+Expensive calculations
+
+
+
+490. How do you handle stale data after mutation?
+in React Query:
+Invalidate query after mutation
+queryClient.invalidateQueries(["todos"]);
+👉 Ensures fresh data
+
+491. How do you implement optimistic updates safely?
+Update UI before server response
+onMutate: async (newData) => {
+  queryClient.setQueryData(["todos"], old => [...old, newData]);
+}
+👉 Rollback if request fails
+
+
+492. How do you prevent duplicate API calls in React?
+echniques:
+React Query caching
+Debouncing (search inputs)
+Dependency control in useEffect
+
+
+493. How do you handle error boundaries + API fallback + retry UX?
+Use:
+Error Boundary for UI crash
+API error handling (try/catch)
+Retry button for failed requests
+👉 UX:
+Show fallback UI + retry option
+
+
+494. How do you design a reusable table used by multiple business modules?
+495. How do you handle caching strategy in React Query?
+496. How do you handle unsaved changes warning in forms?
+497. How do you implement route guards with async auth initialization?
+498. How do you handle accessibility in reusable components?
+499. How do you migrate legacy class components to hooks safely?
+500. What React best practices do you follow in enterprise applications?

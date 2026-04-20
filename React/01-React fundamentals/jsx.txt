@@ -1,0 +1,37 @@
+)what is jsx
+jsx stands for javascript XML.
+jsx stands for javasciprt XML. it is a syntax extension that lets you to write HTML like code inside javasciprt
+
+
+12)is JSX mandatory?
+no but it makes react code more readable and easier to write 
+
+13)How jsx works behind the scenes?
+babel converts jsx into into react.createElement calls call compiled output 
+
+14)Role of babel in react ?
+babel transpiles modern js and jsx into browser-compatible javasciprt
+
+15)why className instead of class?
+because class is a reserved keyword in javscript 
+
+16)can we write js expression in jsx ?
+inside curly braces , but obly expression - not statement like if/else
+
+18)what can/can't be rendered in jsx?
+strings, number, elements, arrays can render : plain objects and undefined usually cannot be rendered directly 
+
+19)why return a single parent ele ?
+a component must return one root ele so react can treat the output as a single ele tree  
+
+20)what is fragement?
+a fragement groups multiple ele without adding extra DOM nodes
+
+
+
+
+17. Why do we use htmlFor instead of for?
+18. Can we write JavaScript expressions inside JSX?
+21. What is React Fragment and why is it used?
+22. Difference between <React.Fragment> and <> </>?
+25. What is the difference between expression and statement in JSX context?

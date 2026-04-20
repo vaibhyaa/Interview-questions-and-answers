@@ -1,0 +1,75 @@
+How do you fetch data in React?
+In modern React, I usually avoid manual data fetching with useEffect and prefer libraries like react query TanStack or SWR.
+
+
+312. Why is useEffect-based fetching often problematic?
+Manual loading/error state management , Race conditions , Duplicate API calls , No caching , Harder to sync server state
+
+313. How do you handle loading, error, success states?
+With React Query, these states are built-in (isLoading, isError, isSuccess).
+
+
+
+
+314. How do you cancel stale requests?
+AbortController (native)
+React Query’s automatic cancellation
+
+315. What is race condition in data fetching?
+A race condition happens when multiple API calls are fired, and responses arrive out of order, causing outdated data to overwrite the latest state
+
+
+
+316. How do you prevent race conditions in search requests?
+Debouncing (e.g., lodash debounce)
+Cancel previous requests (AbortController)
+React Query’s queryKey change handling
+
+
+317. How do you handle parallel API calls?
+“I use Promise.all or multiple queries:
+With React Query: useQueries is used to run multiple queries at the same time
+useQueries({
+  queries: [
+    { queryKey: ["users"], queryFn: fetchUsers },
+    { queryKey: ["posts"], queryFn: fetchPosts },
+  ],
+});
+
+const results = useQueries({
+  queries: [
+    { queryKey: ["users"], queryFn: fetchUsers },
+    { queryKey: ["posts"], queryFn: fetchPosts },
+  ],
+});
+const users = results[0].data;
+const posts = results[1].data;
+🔥 5. Why use useQueries?
+👉 When you need:
+Multiple independent API calls
+At the same time
+In same component
+
+
+318. How do you handle dependent API calls?
+With React Query:
+useQuery({
+  queryKey: ["users"],
+  queryFn: fetchUsers,
+  retry: 3,
+});
+Manually:
+Use retry logic with exponential backoff
+Handle specific errors (like 500 vs 404)”
+
+
+319. How do you retry failed requests?
+320. How do you structure API layer in enterprise React apps?
+Separation of concerns
+Reusability across components
+Easier testing and mocking
+Centralized error handling
+Cleaner components (UI only)
+
+
+321. Why should API calls be abstracted into service files?

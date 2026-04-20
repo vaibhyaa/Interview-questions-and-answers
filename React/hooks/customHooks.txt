@@ -1,0 +1,9 @@
+What is a custom hook?
+233. Why do we create custom hooks?
+234. How is a custom hook different from a normal utility function?
+235. Naming convention for custom hooks?
+236. Can custom hooks share state between components?
+237. How do custom hooks help in code reuse?
+238. Example of useFetch, useLocalStorage, useDebounce, usePrevious.
+239. How do you test custom hooks?
+240. What are common anti-patterns in custom hooks?

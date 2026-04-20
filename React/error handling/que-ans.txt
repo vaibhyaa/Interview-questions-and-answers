@@ -1,0 +1,7 @@
+What are Error Boundaries?
+332. Which errors can Error Boundaries catch?
+333. Can Error Boundaries catch async errors?
+334. Can Error Boundaries catch event handler errors?
+335. How do you handle API errors in React?
+336. How do you display user-friendly error messages?
+337. How do you handle fallback UI in enterprise apps?

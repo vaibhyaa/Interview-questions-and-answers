@@ -1,0 +1,88 @@
+JWT 
+What is JWT? (JSON WEB TOKEN)
+JWT (JSON Web Token) is a compact token format used to securely transmit claims between parties. It is commonly used for stateless authentication in APIs.
+
+What does a JWT contain?
+Header
+Payload
+Signature
+The payload may contain claims like user ID, role, token type, expiry, etc.
+
+Is JWT encrypted?
+No, JWT is usually signed, not encrypted.
+
+Why is JWT useful in APIs?
+JWT enables stateless authentication,
+where the server can verify the token without storing session state in memory
+
+A request is protected by using authentication middleware.
+When user logs in, server generates a JWT access token.
+For every protected request, client sends that token (usually in Authorization header or sometimes HTTP-only cookie).
+
+
+
+
+
+
+ACCESS TOKEN VS REFRESH TOKEN
+An access token is a short-lived token used to authorize API requests.
+It is sent with protected requests and checked by auth middleware.
+
+What is a refresh token?
+A refresh token is a longer-lived token used to obtain a new access token when the current access token expires,
+
+Why keep access token short-lived?
+If an access token is stolen, a short expiry reduces the time an attacker can use it.
+
+Why do we need refresh tokens?
+Refresh tokens improve user experience by allowing silent re-authentication after the access token expires
+
+Where should refresh tokens be stored?
+store refresh tokens in HttpOnly cookies
+frontend JavaScript cannot access them, reducing XSS risk
+
+How do you implement logout all devices?
+Track refresh sessions in the database and revoke all active sessions for that user.
+Once revoked, refresh tokens can no longer generate new access tokens
+
+
+
+
+
+
+
+COOKIES :-
+A cookie is a small piece of data stored by the browser and sent automatically with matching requests to the server, depending on domain/path rules.
+
+
+Why store refresh token in cookie?
+Because cookies support security flags like:
+httpOnly
+secure
+sameSite
+
+What does httpOnly mean
+httpOnly prevents JavaScript in the browser from reading the cookie.
+
+What does secure mean?
+secure means the cookie is sent only over ONLY HTTPS,
+
+
+CORS 
+What is CORS? (Cross-Origin Resource Sharing) 
+CORS is a browser security mechanism that controls whether a frontend from one origin can make requests to a backend on another origin.
+
+
+What is an origin?
+COBINATION OF protocol,domain,port.
+
+
+Why do we need CORS in Express apps?
+If frontend and backend run on different origins
+the browser blocks requests unless the backend explicitly allows them via CORS headers.
+
+
+How do cookies affect CORS?
+If cookies are sent cross-origin: 
+frontend must send credentials: "include"
+backend must enable credentials: true

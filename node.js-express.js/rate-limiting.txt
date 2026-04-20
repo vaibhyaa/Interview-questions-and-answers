@@ -1,0 +1,14 @@
+What is rate limiting?
+Rate limiting restricts how many requests a client can make within a certain time window.
+
+
+Where should rate limiting be applied?
+public APIs
+login endpoints
+OTP / password reset endpoints
+expensive endpoints
+file upload endpoints
+
+
+Why is rate limiting important for auth endpoints?
+it help reduce brute force login attempts, credential stuffing, and abuse of sensitive routes like password reset or token refresh 

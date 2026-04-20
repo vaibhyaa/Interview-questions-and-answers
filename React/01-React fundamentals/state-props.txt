@@ -1,0 +1,55 @@
+
+)What is reference type vs primitive type in React state?
+primitives type : string , number , boolean , null , undefined 
+non-primitive / reference : array , object , function 
+
+29)what are props?
+props are component properties 
+props are read-only properties passed from parent to child component 
+
+30) are props mutable ?
+no props should be treated as immutable/read-only 
+
+31)why are props read-only?
+to keep data flow predictable and make component easier to debug
+
+32)what is prop drilling ?
+passing props through many intermediate components just to reash a deeply nested child component
+
+33)how to avoid props drilling?
+use context , state management lib or better component composition 
+
+34)what is children prop ?
+it represent nested content based between component's opening and closing tags 
+
+34)how do you pass function as props ?
+pass a function reference from parent so child can trigger parent logic 
+
+35)props vs state 
+props come from parent and they are read-only/immutable
+state is like memory of component  it is managed inside a component and be changed 
+
+36)what are default props ?
+fallback values used when prop is not provied.
+
+37)propTypes vs typescript ?
+propTypes validate at runtime ,
+typescript catches type issues during compile time 
+
+38)what is state ?
+state is component-owned data that changes over time and triggers re-renders
+
+39)why does state update trigger re-renders ?
+because react re-executes that component to compute updates UI from new state 
+
+40)why treat state as immutable ?
+immutable updates let react detect changes reliabely and avoid bugs 
+
+41)what happens if we mutate state directly ?
+ui may not update correctly and debugging becomes difficult
+
+42)what is batching in react ?
+react groups multiple state updates into fewer renders for performance 
+
+43)when use function updater ?
+when the next state depends on the previous state 

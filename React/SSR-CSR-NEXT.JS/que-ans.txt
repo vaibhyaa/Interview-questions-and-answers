@@ -1,0 +1,10 @@
+What is CSR (Client-Side Rendering)?
+365. What is SSR (Server-Side Rendering)?
+366. What is SSG (Static Site Generation)?
+367. What is ISR (Incremental Static Regeneration)?
+368. What is hydration in React?
+369. What is hydration mismatch?
+370. What causes hydration mismatch?
+371. Why is Next.js popular over plain React in production?
+372. React vs Next.js?
+373. When should you choose SSR vs CSR?

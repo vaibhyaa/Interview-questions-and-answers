@@ -1,0 +1,73 @@
+1) What is Node.js?
+node is a javascript runtime built on chrome v8 engine that allows javascript to run outside the browser.
+It is mainly used for building backend services, APIs, real-time apps, and server-side tools
+ 
+
+
+2) Why is Node.js popular for backend development?
+because it uses an event-driven, non-blocking I/O model which make iT efficient for handling many concurrent request.
+it also allows using JavaScript on both frontend and backend, improving developer productivity.
+
+
+3-a)concurrent tasks ?
+Multiple tasks are started and managed during the same time period, but not necessarily running at the exact same instant.
+
+
+3)Is Node.js single-threaded or multi-threaded?
+JavaScript execution in Node.js is single-threaded, meaning your JS code runs on one main thread.
+Node can still handle concurrency because I/O operations are delegated to the OS or libuv thread pool, and results are processed through the event loop
+
+
+4) Why is Node.js good for I/O-heavy applications ?
+Node.js is good for I/O-heavy applications because it does not block the main thread while waiting for operations like database queries, file reads, or API calls.
+Instead, it continues processing other requests and handles results when they are ready
+
+
+5) When is Node.js NOT the best choice?
+Node.js is not ideal for CPU-intensive tasks like heavy image processing, video encoding, or complex calculations on the main thread, because these can block the event loop and reduce performance for all incoming requests
+
+
+6)What is libuv in Node.js?
+libuv is a C library used by Node.js that provides the event loop, async I/O handling, and thread pool support.
+
+
+EVENT LOOP :- 
+7)What is the event loop in Node.js?
+The event loop is the mechanism that allows Node.js to handle asynchronous operations without blocking the main thread. It continuously checks the call stack and callback queues, and executes callbacks when the stack is free.
+
+
+8) Explain the event loop in simple terms.
+Node receives requests, starts async tasks like DB calls or file reads, and instead of waiting, it moves on to other work. When those async tasks finish, their callbacks are queued, and the event loop executes them when the call stack is empty.
+
+
+9)What is the call stack?
+The call stack is the place where function calls are executed in a last-in-first-out order. Synchronous JavaScript code runs directly on the call stack.
+
+10) What is the callback queue?
+The callback queue stores callbacks from completed async operations like setTimeout or I/O events. The event loop pushes them to the call stack when the stack is empty.
+
+11) What is the microtask queue?
+The microtask queue stores high-priority async callbacks like resolved Promise callbacks and process.nextTick(). These run before the normal callback queue in the event loop cycle.
+
+
+12) Which runs first: Promise, setTimeout, or process.nextTick()?
+process.nextTick() runs first, then Promise microtasks, then timer callbacks like setTimeout(), assuming their delay has completed.
+Order (simplified):
+process.nextTick()
+Promise callbacks (.then)
+setTimeout()
+setImmediate() (depending on phase/context)
+
+
+
+BLOCKING VS NON-BLOCKING
+16) What is blocking code in Node.js?
+Blocking code prevents the main thread from doing other work until the current task finishes. For example, synchronous file reads or CPU-heavy loops block the event loop.
+
+
+17) What is non-blocking code?
+Non-blocking code starts an operation and allows Node.js to continue executing other tasks without waiting for that operation to finish. When the operation completes, a callback, promise, or async function resumes the flow.
+
+
+18)Why should blocking code be avoided in API servers?
+Because Node uses a single main thread for JavaScript execution. If one request blocks the event loop, other incoming requests also get delayed, reducing throughput and hurting performance.

@@ -1,0 +1,5 @@
+What are concurrent rendering concepts in React?
+360. Is concurrent rendering always enabled?
+361. What is interruptible rendering?
+362. What are transitions in React?
+363. How do transitions improve UX?

@@ -1,0 +1,11 @@
+What is higher-order component (HOC)?
+339. What is render props pattern?
+340. HOC vs render props vs custom hooks?
+341. Why are custom hooks often preferred today?
+342. What is compound component pattern?
+343. What is controlled/uncontrolled component pattern in reusable UI libraries?
+344. What is headless component pattern?
+345. What is provider pattern?
+346. What is container/presentational pattern?
+347. What is slot pattern in React?
+348. How do you design scalable reusable components for design systems?

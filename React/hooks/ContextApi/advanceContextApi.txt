@@ -1,0 +1,93 @@
+Context API (Deeper)
+258. What is createContext?
+createContext is a React API used to create a Context object, which allows data to be shared across a component tree without manually passing props at every level
+
+
+
+259. How does Provider and Consumer work?
+A context object that gives access to:
+Provider
+Consumer
+
+Provider:
+placed higher in the component tree
+supplies the context value to descendants
+Consumer:
+reads the nearest matching Provider’s value
+
+
+
+
+260. Why is useContext preferred over Consumer render props?
+useContext is usually preferred because it is:
+cleaner
+more readable
+less nested
+easier to compose with other Hooks
+more natural in function components
+
+
+
+
+261. What happens when Provider value changes?
+When a Provider’s value changes, all components consuming that context are re-evaluated/re-rendered.
+
+
+
+
+262. Why can passing object literals directly in provider cause re-renders?
+Because object literals create a new reference on every render.
+
+
+
+263. How do you memoize context value?
+Use useMemo to keep the Provider value reference stable unless its dependencies actually change.
+So sometimes combine:
+useCallback for functions
+useMemo for provider object
+
+
+
+264. Context API vs Redux?
+Context API:- Good for:
+theme
+auth user info
+locale
+small/medium global UI state
+avoiding prop drilling
+Pros:
+built into React
+simple setup
+no external library
+Pros:
+built into React
+simple setup
+no external library
+
+Redux
+Good for:
+large apps
+complex shared state
+many independent updates
+predictable centralized state transitions
+advanced debugging
+middleware / async flows
+Pros:
+scalable
+predictable
+excellent devtools
+middleware support
+better architecture for large state graphs
+Cons:
+more setup
+more concepts
+
+
+265. When does Context become a bad fit?
+Context becomes a bad fit when:
+the state changes frequently
+many consumers depend on the same context
+the context value is large and unrelated
+unrelated consumers re-render too often
+you need fine-grained subscriptions
+debugging/state tooling becomes important

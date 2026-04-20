@@ -1,0 +1,15 @@
+Build a counter using useState.
+457. Build a todo app with add, delete, toggle complete.
+458. Build a searchable user list with API fetching.
+459. Build a debounced search input.
+460. Build a reusable modal component using portals.
+461. Build tabs using compound components.
+462. Build an accordion component.
+463. Build a custom hook for window width.
+464. Build a useLocalStorage hook.
+465. Build a usePrevious hook.
+466. Build a paginated table with server-side fetch.
+467. Build protected routes with role-based access.
+468. Build a form with validation using react-hook-form.
+469. Build a file upload preview component.
+470. Build infinite scroll using IntersectionObserver.

@@ -1,0 +1,60 @@
+useRef
+153) What is useRef?
+useRef is a react hook that returns a mutable object with a .current property
+The returned object stays the same between renders.
+it is mainly used for:
+referencing DOM elements
+storing mutable values that should persist across renders
+keeping values without causing re-renders
+
+
+
+
+
+154) Why does updating ref.current not trigger re-render?
+Updating ref.current does not trigger a re-render because React does not track refs as reactive state.
+
+155) useRef vs useState?
+| `useRef`                                   | `useState`                                 |
+| ------------------------------------------ | ------------------------------------------ |
+| Stores mutable value in `.current`         | Stores reactive state                      |
+| Persists across renders                    | Persists across renders                    |
+| Updating does **not** trigger re-render    | Updating **does** trigger re-render        |
+| Good for DOM refs, timers, previous values | Good for UI data that should update screen |
+| Not for rendering UI directly              | Used when UI depends on the value          |
+
+
+156) Common use cases of useRef?
+useRef is commonly used for DOM access, storing mutable values like timers or controllers, and preserving previous/latest values across renders.
+acessing DOM elements:-
+focus input, scroll to elements, measure size, play/pause video 
+storing mutable values withour re-render :-
+timer IDs
+interval IDs 
+websocket instance 
+AbortController instance 
+Persisting values across renders:- 
+previous props/state
+“isMounted” flags (though often avoid this pattern)
+latest callback references
+
+
+157) How do you focus an input using useRef?
+you create a ref, attach it to the input, and call .focus() on ref.current.
+
+
+158) How do you persist mutable values across renders?
+useRef to store values that must survive re-renders but should not cause UI updates.
+
+
+
+159) How do you store previous value using useRef?
+Use useRef to store values that must survive re-renders but should not cause UI updates.
+create a ref
+update it inside useEffect
+read it on the next render as the “previous” value
+
+
+
+160) Can useRef cause bugs if misused?
+Yes, useRef can cause bugs if misused because it bypasses React’s normal reactive rendering model.

@@ -1,0 +1,11 @@
+What is state in React?
+51. Why does updating state trigger re-render?
+52. Why should state be treated as immutable?
+53. What happens if you mutate state directly?
+54. Difference between local variable and state variable?
+55. What is asynchronous state update in React?
+56. Why can setState / setCount feel asynchronous?
+57. What is batching in React?
+58. What is the functional updater form in state?
+59. When should you use setState(prev => ...)?
+60. Can multiple state updates be combined?

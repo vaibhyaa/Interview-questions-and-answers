@@ -1,0 +1,16 @@
+Why does React re-render even if state value seems same sometimes?
+441. Why does setState inside render cause issues?
+442. Why is derived state often considered an anti-pattern?
+443. Why is useEffect not ideal for all data fetching?
+444. Why is memoization not always a performance win?
+445. Why can premature optimization hurt React apps?
+446. Why does passing inline arrow functions not always matter?
+447. Why can React.memo fail if props are objects/functions?
+448. Why should reducers be pure?
+449. Why should side effects stay outside reducers?
+450. Why does context not fully replace Redux in all cases?
+451. Why should UI authorization never be trusted alone?
+452. Why is local component state often better than global state?
+453. Why should you avoid storing duplicated source of truth?
+454. Why is key stability critical for preserving component state?
+455. Why does Strict Mode reveal hidden bugs?

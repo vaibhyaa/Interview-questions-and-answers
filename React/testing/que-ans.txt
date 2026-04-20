@@ -1,0 +1,12 @@
+What types of testing exist in React?
+395. What is unit testing in React?
+396. What is integration testing in React?
+397. What is end-to-end testing?
+398. What is React Testing Library?
+399. Why is React Testing Library preferred over testing implementation details?
+400. What is the philosophy of RTL?
+401. What should you test — behavior or internal state?
+402. How do you test async UI updates?
+403. How do you test components using context/providers?
+404. How do you mock API calls?
+405. How do you test custom hooks?

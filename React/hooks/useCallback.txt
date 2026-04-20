@@ -1,0 +1,66 @@
+useCallback
+170) What is useCallback?
+useCallback is a React Hook that memoizes a function reference and returns the same function instance between renders until its dependencies change.
+useCallback is a Hook that caches a function reference so React can reuse the same function between renders until dependencies change.
+
+
+
+171) Why do we use useCallback?
+We use useCallback mainly for performance optimization when function reference stability matters.
+Prevent unnecessary re-creation of functions on every render.
+Prevent unnecessary child re-renders when passing callbacks as props.
+Keep function dependencies stable in useEffect, useMemo, or custom hooks
+Preserve referential equality for optimized components
+
+
+
+172) When is useCallback actually useful?
+useCallback is useful only when function identity matters.
+useCallback is useful when a function’s reference stability affects rendering or Hook dependencies—not just because a function exists.
+useCallback is useful when function identity matters, especially with React.memo, Hook dependencies, or expensive child renders.
+
+
+
+173) Why is useCallback often paired with React.memo?
+Because React.memo skips re-rendering a child only if its props are shallowly equal.
+That means:
+React.memo sees prop changed
+child re-renders anyway
+
+
+
+
+
+
+174) When is useCallback unnecessary?
+useCallback is unnecessary when function reference stability does not matter.
+
+
+
+175) What is function identity in React?
+Function identity means whether a function is the same reference in memory as the previous render.
+in react :-
+each render creates new functions unless memoized
+React compares props by reference
+so function identity affects re-renders and dependencies
+
+
+
+
+
+
+176) How do unstable callback references cause child re-renders?
+If a parent creates a new callback on every render, the child receives a new function prop reference every time.
+
+
+177. Common misuse of useCallback?
+Memoizing every function unnecessarily
+Using it for “performance” without measuring
+Wrong dependency array
+Using it to silence ESLint instead of fixing logic
+Thinking it prevents function creation entirely
+Overcomplicating simple components
+
+
+useMemo vs useCallback
+useMemo memoizes a value, useCallback memoizes a function reference.

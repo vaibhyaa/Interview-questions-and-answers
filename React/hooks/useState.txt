@@ -1,0 +1,70 @@
+useState
+119) What is useState?
+use-state is built-in react hook that allows a functional component to create and manage local state 
+
+120) Why was useState introduced?
+useState was intruduced because before hook, only class component could manage state.
+functional component were stateless
+
+
+121) How does useState work internally conceptually?
+react stores hook state in an internal list/queue attached to a component instance (fiber)
+React tracks Hook state by position. Each useState call maps to a stored state slot, and the setter schedules a re-render with the updated value.
+
+122) What happens when you call the setter function?
+react doesnot immediately mutate the UI 
+it queues a state updater
+react shedule a re-render 
+during the next render, react calculates the  new state
+react compares the new virtual DOM with the previous one 
+only the necessary DOM updates are required 
+
+123) Why does React preserve state between renders?
+React preserves state between renders so that a component can maintain its data across UI updates.
+react preserves state between renders so components can remain interactive and maintain data even though the function re-executes on every render.
+
+
+124) What is lazy initialization in useState?
+Lazy initialization means passing a function to useState instead of a direct value
+That function runs only once on the initial render, and its return value becomes the initial state.
+const [data, setData] = useState(() => expensiveCalculation());
+Lazy initialization means providing a function to useState so React computes the initial state only once during the first render
+
+125) When should you use useState(() => expensiveFn())?
+heavy computation
+parsing large data
+reading from localStorage
+expensive transformations
+any logic that should run only once
+
+
+
+126) What are common mistakes with useState?
+Updating state based on old value incorrectly
+Mutating objects/arrays directly
+Expecting immediate updated state
+Storing derived state unnecessarily
+Using too much state for simple values
+
+
+127) Why not store derived values in state?
+Derived values are values that can be calculated from existing props or state
+it creates duplicate source of truth
+can cause data inconsistency
+requires extra synchronization logic
+leads to unnecessary re-renders
+makes code harder to maintain
+
+
+
+
+128-b) What is Stale State in React?
+Stale state means you are updating state using an old/outdated value instead of the latest current state.
+
+
+128-b) What is stale state issue?
+Stale state happens when you update state using an old captured value instead of the latest state.
+
+What is Stale State in React? (Interview Answer)
+
+Stale state means you are updating state using an old/outdated value instead of the latest current state.

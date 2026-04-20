@@ -1,0 +1,92 @@
+How do you implement login flow in React?
+User submits email/password form
+Frontend sends request to backend (/login)
+Backend validates and returns:
+access token (short-lived)
+optionally refresh token
+Store token (preferably in memory + secure cookie)
+Update global auth state (Context / Redux)
+Redirect user to dashboard
+
+In React:
+Use Context API or Redux for auth state
+Store user + token in state
+After login → setAuth → navigate to protected route
+
+
+
+386. How do you persist auth state after refresh?
+Store token in:
+httpOnly cookie (best, secure)
+OR localStorage (less secure)
+On app load:
+Call /me API (or decode token)
+Restore user state into Context
+
+
+387. How do you protect private routes?
+Create a wrapper component:
+function ProtectedRoute({ children }) {
+  const { user } = useAuth();
+
+  if (!user) return <Navigate to="/login" />;
+
+  return children;
+}
+Usage:
+<Route path="/dashboard" element={
+  <ProtectedRoute>
+    <Dashboard />
+  </ProtectedRoute>
+} />
+
+
+388. How do you handle token expiration?
+Access tokens are short-lived.
+Ways:
+Check expiry (JWT decode)
+Or rely on backend 401 response
+Best approach:
+If API returns 401 → token expired
+Then trigger refresh token flow
+
+
+389. What is refresh token flow?
+What is refresh token flow?
+Flow:
+Access token expires
+Frontend sends refresh token to /refresh
+Backend validates refresh token
+Returns new access token
+Retry original request
+
+Refresh token stored in httpOnly cookie
+Access token stored in memory
+
+390. How do you auto-logout on unauthorized response?
+
+391. How do you handle role-based access in UI?
+Control UI rendering based on user roles.
+👉 Example:
+{user.role === "admin" && <AdminPanel />}
+👉 Or restrict routes:
+Only allow specific roles to access certain pages
+
+
+
+392. Why should backend always enforce authorization too?
+Frontend is not secure.
+👉 Reasons:
+Users can modify JS
+APIs can be called directly
+👉 Therefore:
+Backend must validate:
+data
+token
+roles
+permissions
+👉 Frontend = UX
+👉 Backend = security
+
+
+393. How do you prevent flashing protected UI before auth loads?

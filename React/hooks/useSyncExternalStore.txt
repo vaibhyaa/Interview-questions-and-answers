@@ -1,0 +1,5 @@
+useSyncExternalStore
+219. What is useSyncExternalStore?
+220. Why was it introduced?
+221. When would libraries use it?
+222. Why is it important for external store consistency?

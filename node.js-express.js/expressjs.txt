@@ -1,0 +1,157 @@
+middleware :- 
+1)What is middleware in Express.js?
+Middleware is a function that has access to the req, res, and next objects in the request-response cycle. 
+It can modify the request, perform checks, call the next middleware, or end the response.
+
+
+2) What is the purpose of next() in Express?
+next() passes control to the next middleware or route handler in the chain. If next() is not called and no response is sent, the request can hang.
+
+
+3)What are common types of middleware?
+Built-in middleware (express.json(), express.urlencoded()),
+Third-party middleware (cors, helmet, morgan, cookie-parser)
+Custom middleware (auth, logging, validation, RBAC)
+Error-handling middleware
+
+
+
+4)What is app-level middleware?
+App-level middleware is applied globally using app.use() and runs for all matching requests across the application.
+JSON parsing,CORSsecurity headers,request logging
+
+
+5) What is router-level middleware?
+Router-level middleware is attached to a specific router and only affects routes inside that router. It is useful when different modules need different middleware chains.
+
+
+6) Give real-world examples of custom middleware.
+Authentication middleware, Request validation middleware, Error normalization middleware, Rate-limit checks
+
+
+7)What happens if middleware sends a response and still calls next() ?
+This can cause unexpected behavior like “Cannot set headers after they are sent” because the next handler may try to send another response.
+Once a response is sent, the request lifecycle should usually end.
+
+
+
+
+ERROR-HANDLING :-
+8)How do you handle errors in Express?
+Use try/catch in async controllers
+Pass errors to next(error)
+Use a centralized global error-handling middleware at the end of the middleware chain
+
+
+9)What is error-handling middleware in Express?
+It is a middleware function with 4 parameters:
+(err, req, res, next)
+Express identifies it as an error handler and sends all propagated errors to it.
+
+
+10)Why use centralized error handling?
+Centralized error handling keeps controller code clean, avoids duplicate error response logic, standardizes API error formats, and makes logging and monitoring easier.
+
+
+
+12)What causes “Cannot set headers after they are sent”? 
+missing return after res.json()
+calling next() after sending a response
+
+
+
+
+FOLDER STRUCTURE :-
+A common scalable structure is:
+routes/
+controllers/
+services/
+models/
+middlewares/
+validators/
+utils/
+config/
+constants/
+errors/
+
+
+Why separate controllers and services?
+Controller handles HTTP concerns: request, response, status codes
+Service contains business logic
+
+What should go inside controllers?
+Controllers should:
+read request data
+call service methods
+send HTTP responses
+pass errors to error middleware
+
+
+What should go inside services?
+business rules
+validation beyond request shape (domain rules)
+orchestration between DB, external APIs, and utilities
+reusable domain log
+
+
+Why avoid putting everything in controllers?
+hard to read, hard to test, and hard to maintain.
+Mixing HTTP handling with business logic makes scaling the application much harder.
+
+
+
+
+
+
+REST-API?
+A REST API is an architectural style where resources are exposed through URLs and manipulated using standard HTTP methods like GET, POST, PUT, PATCH, and DELET
+
+
+What are the main HTTP methods used in REST?
+GET → fetch data
+POST → create data
+PUT → replace full resource
+PATCH → partially update resource
+DELETE → remove resource
+
+
+Difference between PUT and PATCH?
+PUT replaces the entire resource (or is treated that way semantically)
+PATCH updates only specific fields
+
+
+
+What does idempotent mean?
+An idempotent operation gives the same result when repeated multiple times with the same input.
+GET is idempotent, PUT is generally idempotent  , DELETE is generally idempotent
+POST is usually not idempotent
+
+
+
+Difference between route params and query params?
+Route params identify a specific resource
+Example: /users/:id
+Query params are used for filtering, searching, sorting, pagination
+Example: /users?page=2&role=admin
+
+
+
+
+What are important HTTP status codes to know?
+
+200 OK
+201 Created
+204 No Content
+400 Bad Request
+401 Unauthorized (not authenticated)
+403 Forbidden (authenticated but not allowed)
+404 Not Found
+409 Conflict
+422 Unprocessable Entity (validation/business rule issue)
+500 Internal Server Error
+
+
+
+Difference between 401 and 403?
+401 = user is not authenticated or token is invalid/missing
+403 = user is authenticated but does not have permission

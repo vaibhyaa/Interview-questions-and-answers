@@ -1,0 +1,22 @@
+What are common reasons for slow React apps?
+267. What is React.memo?
+268. How does React.memo work?
+269. When is React.memo useful?
+270. When is React.memo useless or harmful?
+271. Difference between React.memo and useMemo?
+272. How do props identity changes break memoization?
+273. Why do inline objects/functions cause re-renders?
+274. What is referential equality?
+275. How do useMemo and useCallback help referential stability?
+276. What is list virtualization?
+277. When should you use virtualization (react-window / react-virtualized)?
+278. What is code splitting?
+279. What is React.lazy?
+280. What is Suspense?
+281. How do you lazy load route components?
+282. What is bundle size optimization in React?
+283. How do you analyze bundle size?
+284. What are common unnecessary re-renders?
+285. How do you debug re-renders?
+286. What is the React Profiler?
+287. What are performance anti-patterns in enterprise apps?

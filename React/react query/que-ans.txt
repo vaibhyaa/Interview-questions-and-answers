@@ -1,0 +1,23 @@
+What is React Query / TanStack Query?
+289. Why use React Query instead of useEffect + fetch?
+290. What problem does React Query solve?
+291. What is server state vs client state?
+292. Why is server state different from local UI state?
+293. What is a query key?
+294. Why should query keys be stable and descriptive?
+295. What is useQuery?
+296. What is useMutation?
+297. Difference between query and mutation?
+298. What is query invalidation?
+299. What is queryClient.invalidateQueries()?
+300. What is stale time?
+301. What is cache time / gcTime?
+302. What is background refetching?
+303. What is optimistic update?
+304. How do you rollback optimistic updates on failure?
+305. What is onMutate, onError, onSuccess, onSettled?
+306. What is enabled option in useQuery?
+307. What is dependent query?
+308. How do you handle pagination with React Query?
+309. How do you handle infinite scrolling?
+310. Why is React Query excellent for enterprise apps?

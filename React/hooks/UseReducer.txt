@@ -1,0 +1,120 @@
+
+I use useState for simple independent state and useReducer when state becomes more complex, related, or transition-driven. useReducer is better when multiple values change together, there are many action types, or business logic needs to be centralized. It gives a predictable event-driven flow: dispatch an action, reducer calculates the next state. It also works very well with Context API for shared feature-level state.
+
+What is useReducer?
+useReducer is a React Hook used to manage state with a reducer function.
+useReducer is a Hook for managing complex state in a predictable, action-based way.
+
+
+Flow:
+
+User action → dispatch(action) → reducer gets current state + action → returns new state → React re-renders
+dispatch({ type: "increment" });
+
+
+
+188) useState vs useReducer?
+Both are used for state management in functional components, but they are suited for different complexity levels.
+useState:- Best for:-
+simple state
+independent values
+straightforward updates
+useReducer :- Best for:
+complex state logic
+multiple related state values
+state transitions based on action types
+predictable update flows
+Good for:
+forms with many fields
+loading/success/error state
+multi-step wizards
+dependent updates
+domain-like local state
+
+
+
+189. When is useReducer better than useState?
+useReducer is better when state logic becomes complex, related, or transition-heavy.
+Multiple related state fields
+Example:
+data
+loading
+error
+Instead of multiple useStates, one reducer can manage them together.
+
+
+
+
+190. What are action, dispatch, reducer?
+An action is a plain object that describes what happened. 
+{ type: "increment" }
+{ type: "setName", payload: "Vaibhav" }
+Usually contains:
+type → what event occurred
+payload → optional data
+dispatch is the function used to send an action to the reducer.
+dispatch({ type: "increment" });
+dispatch({ type: "setName", payload: "Vaibhav" });
+A reducer is a function that receives:
+current state
+action
+and returns:
+next state
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { ...state, count: state.count + 1 };
+    default:
+      return state;
+  }
+}
+
+Flow:
+UI event → dispatch(action) → reducer(state, action) → new state → re-render
+An action describes what happened, dispatch sends that action, and the reducer decides the next state based on current state and action.
+
+
+
+
+191) Why should reducers be pure functions?
+Reducers should be pure because React expects state updates to be predictable, testable, and side-effect free.
+
+
+192) Can reducers contain async logic?
+No — reducers should not contain async logic.
+Reducers decide state transitions
+
+
+193)  How do you structure reducer actions in large apps?
+In large apps, actions should be consistent, scalable, and easy to maintain.
+
+
+
+
+194) How do you combine useReducer with Context API?
+Context API for sharing state/dispatch
+useReducer for predictable state transitions
+
+
+
+
+
+useState sets values; useReducer models state transitions.
+
+2.
+
+Reducers should be pure and synchronous.
+
+3.
+
+Async work happens outside the reducer, then dispatches actions.
+
+4.
+
+Action names should describe events, not UI implementation details.
+
+5.
+
+useReducer + Context is a lightweight alternative for shared feature state.
+
+These make you sound 3+ years experienced.

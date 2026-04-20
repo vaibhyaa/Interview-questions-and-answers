@@ -1,0 +1,117 @@
+Context API is often asked with:
+prop drilling
+global state
+re-renders
+performance optimization
+why Redux/Zustand sometimes preferred
+
+
+!)What is useContext?
+Context API is used to avoid prop drilling by allowing shared data to be accessed directly by deeply nested components. It’s useful for app-wide or subtree-wide concerns like auth, theme, locale, or permissions. However, Context can cause performance issues because when the provider value changes, all consumers of that context re-render since React compares the entire context value by reference, not individual fields. To optimize this, we memoize provider values, memoize callback functions, split contexts by concern, and avoid storing highly dynamic state in a large shared context.
+
+
+
+
+179) What problem does Context API solve?
+Context API solves the problem of prop drilling.
+When data needs to be passed through multiple intermediate components just to reach a deeply nested child.
+With Context:
+parent provides data once
+deeply nested components consume directly
+Context API is designed for sharing data across a component tree without manually passing props through every level.
+
+
+
+180) How is Context different from props?
+Both props and Context pass data, but they serve different purposes.
+Props:-
+explicit parent → child data flow
+best for local, component-specific communication
+predictable and easy to trace
+passed manually through component hierarchy
+Context:-
+shared data accessible by many nested components
+avoids passing props through intermediate components
+better for “global-ish” data in a subtree
+can cause broader re-renders if not optimized
+
+
+181) When should you use Context API?
+Use Context when data is needed by many components at different nesting levels and passing it via props becomes repetitive or hard to maintain.
+Common good use cases:
+Authenticated user / auth state
+Theme (dark/light mode)
+Language / locale
+Permissions / roles
+Feature flags
+App-wide settings
+UI state shared across a subtree (e.g. modal manager, sidebar state)
+
+
+18) When should you NOT use Context API?
+Do not use Context for everything.
+data is only needed by a few nearby components
+state updates very frequently
+Complex global state logic
+Then dedicated state libraries may be better:
+Redux Toolkit
+Zustand
+
+
+183) What are performance issues with Context?
+The main performance issue is that when the provider value changes, all consuming components that read that context re-render.
+
+
+
+184) Why do all consumers re-render when provider value changes?
+Because React Context compares the provider’s value by reference, not by deeply checking which specific field each consumer uses.
+All consumers re-render because React tracks the entire context value by reference, not the specific fields each consumer reads
+
+
+
+
+185) How do you optimize Context re-renders?
+There are several important ways to optimize Context performance.
+Memoize the provider value with useMemo:-
+const value = useMemo(() => ({ user, login, logout }), [user, login, logout]);
+<AuthContext.Provider value={value}>
+  {children}
+</AuthContext.Provider>
+Memoize functions inside provider:-
+If login, logout, toggleTheme are recreated each render, the memoized value may still change. Use useCallback when needed.
+Split contexts by concern
+Instead of one big context:
+AuthContext
+ThemeContext
+SettingsContext
+This reduces unnecessary cross-domain re-renders.
+Keep fast-changing state out of broad context
+Memoize heavy consumer components
+Use selector-based state libraries if needed
+
+186) How do you split contexts for performance?
+You split contexts by responsibility/domain, so unrelated updates don’t trigger unrelated consumers.
+
+
+
+
+
+Separate contexts
+AuthContext
+ThemeContext
+CartContext
+NotificationContext
+UIContext
+Example:
+<AuthProvider>
+  <ThemeProvider>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </ThemeProvider>
+</AuthProvider>
+
+Now:
+auth changes → only auth consumers affected
+theme changes → only theme consumers affected
+cart changes → only cart consumers affected

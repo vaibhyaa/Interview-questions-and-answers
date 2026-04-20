@@ -1,0 +1,13 @@
+How do you structure a large React project?
+407. Feature-based folder structure vs type-based folder structure?
+408. Where should hooks, services, utils, components, pages live?
+409. How do you separate UI components from business logic?
+410. What is a smart component vs dumb component?
+411. How do you create reusable table/form/modal components?
+412. How do you manage environment variables in React?
+413. How do you manage API base URLs for dev/staging/prod?
+414. How do you handle access control in enterprise dashboards?
+415. How do you implement scalable form systems?
+416. How do you handle audit logs / permissions in UI?
+417. How do you avoid tight coupling in large React codebases?
+418. How do you manage shared components across modules?

@@ -1,0 +1,9 @@
+What are lifecycle methods in class components?
+111. Explain mounting phase lifecycle methods.
+112. Explain updating phase lifecycle methods.
+113. Explain unmounting phase lifecycle methods.
+114. What is componentDidMount used for?
+115. What is componentDidUpdate used for?
+116. What is componentWillUnmount used for?
+117. Why are some lifecycle methods deprecated?
+118. What is the equivalent of lifecycle methods in functional components?

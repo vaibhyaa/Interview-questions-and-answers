@@ -1,0 +1,43 @@
+What are the main principles of secure API design?
+validate all inputs 
+authenticate all protected routes 
+hash passowrd 
+use secure token handling 
+USE https 
+configre cors properly 
+add secure cookies 
+Add security headers
+Rate-limit sensitive endpoints
+
+
+
+
+What should never be stored inside a JWT payload?
+passwords
+refresh tokens
+personal sensitive info
+anything you wouldn’t want exposed if decoded
+
+
+
+Why should internal errors not be exposed to clients?
+Because raw errors may reveal stack traces, DB structure, internal implementation details, or security-sensitive information that attackers can use.
+
+
+
+How do you secure login endpoints?
+validate inputs
+Use bcrypt compare
+Rate limit requests
+Use HTTPS in production
+Use secure token issuance
+Store refresh token safely
+
+
+
+How do you protect refresh token endpoints?
+Read refresh token from HttpOnly cookie
+Verify signature and expiry
+Check session exists / not revoked
+Return new access token safely
+Restrict access if files are private

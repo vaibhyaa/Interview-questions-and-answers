@@ -1,0 +1,48 @@
+ useState
+ UseEffect
+ useContext
+ useReducer
+ useMemo
+ useCallback
+ useRef
+
+ Higher order component ?
+ what ? why> when? how?
+
+
+
+Life cycle methods of components ? class components
+
+state management ?
+state and props
+props drilling 
+context
+
+
+
+Redux :- 
+
+
+
+custom hooks ? 
+
+
+lazy loading ?
+
+
+virtual dom ? reconcialization , react fiber , diffing algo
+
+
+ssr vs csr
+
+
+routing?
+
+
+async tasks ?
+
+
+reusability ?
+
+
+performance ?

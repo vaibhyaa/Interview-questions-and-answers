@@ -1,0 +1,55 @@
+!)What are the Rules of Hooks?
+Rule 1: Only call Hooks at the top level
+Do not call Hooks inside:
+conditions
+loops
+nested functions
+callbacks
+try/catch blocks (generally avoid)
+Rule 2: Only call Hooks from
+React function components
+custom Hooks
+Hooks must be called at the top level and only inside React function components or custom Hooks
+
+
+
+227) Why must hooks be called at the top level?
+React tracks Hooks by the order in which they are called.
+Hooks must be called at the top level so they are executed in the same order on every render.
+Example concept:
+1st Hook → useState
+2nd Hook → useEffect
+3rd Hook → useRef
+On the next render, React expects the same sequence.
+If Hook calls move around because of conditions or loops:
+React may attach the wrong state/effect to the wrong Hook
+bugs happen
+
+
+22) Why can’t hooks be called conditionally?
+Hooks cannot be called conditionally because conditions can change between renders, which changes the Hook order.
+
+
+
+229) Why can’t hooks be called inside loops?
+Hooks cannot be called inside loops because the number of loop iterations can change, which means the number and order of Hook calls can also change between renders
+
+
+230) What happens if hooks order changes?
+If Hook order changes, React may associate the wrong stored state/effect/ref with the wrong Hook call.
+
+231) Why can hooks only be called inside React function components or custom hooks?
+React function components
+custom Hooks
+because React needs a controlled render context to track Hook calls.
+Why not regular functions?
+
+A normal JavaScript function:
+is not part of React’s render cycle
+has no component instance context
+React cannot track Hook ordering/state for it
+Why custom Hooks are allowed?
+Because a custom Hook:
+is called from a component or another custom Hook
+still executes as part of React’s Hook call chain
+preserves Hook rules and order

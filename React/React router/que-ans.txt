@@ -1,0 +1,125 @@
+React Router (Must for MERN)
+241) What is React Router?
+React Router is a routing library for React used to handle client-side navigation in single-page applications (SPAs).
+
+242) Difference between client-side routing and server-side routing?
+Client-side routing:- 
+handled in the browser using JavaScript
+page does not fully reload
+React swaps components based on URL
+Server-side routing :- 
+browser requests a new page from server for each route
+server returns a full HTML page
+full page refresh happens
+
+
+
+243) What is <BrowserRouter>?
+<BrowserRouter> is the router provider that enables routing in a React app using the HTML5 History API.
+
+
+244) What is <Routes> and <Route>?
+<Routes>
+a container that matches the current URL against child routes
+renders the best matching route
+<Route>
+defines a route path and what UI to render for that path
+
+
+245) Difference between element and component prop (v5 vs v6)?
+we used component={Home}, while in v6 we use element={<Home />}. v6 expects an actual React element instead of a component reference.
+
+
+
+246) What is nested routing?
+Nested routing means defining routes inside parent routes, so child routes render within the parent layout.
+Used for:
+dashboards
+settings pages
+admin panels
+shared layouts (sidebar/header)
+
+
+
+247) What is an Outlet?
+<Outlet /> is a placeholder component used inside a parent route component to render the matched child route.
+
+
+
+248) How do dynamic routes work?
+Dynamic routes use URL parameters by prefixing a segment with :
+
+249) What is useParams?
+useParams() is a React Router hook used to read dynamic route parameters from the url
+
+
+250) What is useNavigate?
+useNavigate() is a hook used for programmatic navigation in React Router v6.
+
+
+
+251) Difference between Link and NavLink?
+Link:-
+used for navigation
+simple route change
+NavLink:-
+same as Link
+but provides active route styling
+useful in navbars/sidebars
+Link is for basic navigation, while NavLink is for navigation plus active state awareness, commonly used in menus and sidebars.
+
+
+
+252) What is protected routing?
+Protected routing means restricting access to certain routes unless the user is authenticated (or authorized).
+
+
+
+253) How do you implement private routes with auth?
+In React Router v6, a common pattern is to create a wrapper component that checks auth state.
+
+import { Navigate } from "react-router-dom";
+
+function ProtectedRoute({ children }) {
+  const isAuthenticated = !!localStorage.getItem("token");
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+}
+
+
+254) What is route-based code splitting?
+Route-based code splitting means lazy loading route components so each page bundle is loaded only when that route is visited.
+
+
+
+255) What are loaders/actions in data routers (if asked)?
+Loader:-
+runs before a route renders
+fetches data for that route
+makes data available via useLoaderData()
+Action:-
+handles mutations like form submissions
+used for POST/PUT/DELETE style route actions
+Why useful?
+route-level data fetching
+better co-location of data + route
+easier pending/error handling
+supports forms and navigation workflows
+
+
+
+
+
+
+
+256) How do you handle 404 pages?
+You can handle 404 pages by adding a catch-all route using *.
+
+
+
+257) How do you preserve intended route after login?
+When redirecting an unauthenticated user to login, store the original route in router state, then navigate back after successful login.

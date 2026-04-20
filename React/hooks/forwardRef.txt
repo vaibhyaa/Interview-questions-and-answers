@@ -1,0 +1,4 @@
+What is forwardRef?
+205. Why can’t refs be passed like normal props?
+206. Real-world use case of forwardRef in reusable components?
+207. Example: building custom input with forwardRef.

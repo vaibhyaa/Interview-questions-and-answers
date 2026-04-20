@@ -1,0 +1,14 @@
+86. How do you conditionally render UI in React?
+87. Difference between if, ternary, &&, and early return?
+88. What are pitfalls of using && in JSX?
+89. Why does 0 && <Component /> render 0?
+90. What is the best pattern for readable conditional rendering in large components?
+
+24. How do conditional rendering patterns work in JSX?
+
+
+22) can we use if/else directly in jsx?
+no use ternary ? && or compute before return 
+
+23) condition rendering patterns ?
+use if/else, ternary, && , switch or extraced helper function for readibility 

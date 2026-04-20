@@ -1,0 +1,41 @@
+
+)What are keys and why are they important in list rendering?
+keys are special attributes and need to be included while mapping over an array to render data 
+this key prop helps react to identify whihc ele has changes / added / removed 
+keys should be unique and most of time we use ID from our data as key. 
+
+
+)Why should we not use array index as key?
+Using index as key can break UI when the list order changes.
+React may reuse the wrong DOM element, causing incorrect data or state.
+
+
+)When is using index as key acceptable?
+When the list is static and never changes (no sorting, adding, or deleting).
+In such cases, index won’t lead to inconsistencies.
+
+
+)What issues happen when keys are unstable?
+Unstable keys cause unnecessary re-renders and DOM updates.
+They can also lead to bugs like losing component state or wrong UI updates.
+
+
+)What makes a good key?
+A good key should be unique, stable, and consistent across renders.
+It should ideally come from your data (like an ID), not be generated dynamically.
+
+
+)Why are random keys bad?
+Random keys change on every render, so React treats elements as new each time.
+This causes full re-mounting and performance issues.
+
+
+)Why can index keys break UI state?
+When list items reorder, index changes but component state stays tied to position.
+This results in state being applied to the wrong item.
+
+
+)Give a real-world bug caused by wrong keys.
+Example: A list of input fields using index as key.
+When you reorder items, the typed values move to the wrong inputs because React reuses DOM nodes incorrectly.
+

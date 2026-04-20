@@ -1,0 +1,11 @@
+
+
+Hii my name is vaibhav vidyanad shinde. I am react.js developer and mern full stack software Engineer with total 3.7 years of experience, currently working as technology analyst in infosys. My primary expertise is in React.js, and I also have hands-on experience with Node.js, Express.js, REST APIs, and database integration like MongoDB and also worked on backend service like supabase.
+in my recent work, i have been involved in migrating a legacy enterprice application from Meteor.js to a react micro-frontend architecture, 
+I’ve also worked on reusable UI components, API integration, performance optimization, and testing.
+As part of this migration, I contributed to improving frontend responsiveness by around 40% and also helped enhance automation testcases.
+In addition to my professional experience, I’ve built personal projects like an AI Resume Builder using React, Express, MongoDB, and OpenAI API, as well as a Hotel management system with react-query.
+
+
+
+“I’m looking for a switch mainly because I want to take on a role where I can contribute more deeply as a hands-on developer, especially in React and full-stack MERN development projects.

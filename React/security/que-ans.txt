@@ -1,0 +1,11 @@
+Is React automatically secure from XSS?
+375. What is dangerouslySetInnerHTML?
+376. Why is dangerouslySetInnerHTML dangerous?
+377. How do you safely render user-generated HTML?
+378. Where should auth token be stored — localStorage or cookies?
+379. Why are HTTP-only cookies safer?
+380. What are risks of storing JWT in localStorage?
+381. How do you protect routes in frontend vs backend?
+382. Why is frontend route protection not enough?
+383. What is CSRF and when does it matter?
+384. How do SameSite cookies help?

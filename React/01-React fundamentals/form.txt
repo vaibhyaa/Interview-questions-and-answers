@@ -1,0 +1,69 @@
+)what are controlled components?
+a controlled component is a react component the fully manages the form ele state.
+
+)What is an uncontrolled component?
+An uncontrolled component are form ele whose state is managed by their own state internally or via DOM 
+
+
+
+)How do you handle multiple form inputs with a single handler?
+const [form, setForm] = useState({
+  name: "",
+  email: "",
+});
+
+function handleChange(e) {
+  const { name, value } = e.target;
+  setForm((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+}
+
+
+)why react hook form is faster ?
+it relies more on uncontrolled inputs and minimizes re-renders 
+
+)What is the purpose of name attribute in forms?
+The name attribute helps identify which input field is being changed or submitted.
+
+
+)How do you handle checkbox, radio, select, textarea in React?
+Use the name attribute and update state dynamically using computed property names.
+This allows one handler to manage multiple inputs efficiently.
+Checkbox → use checked instead of value
+Radio → use same name and control selected value
+Select → use value on <select>
+Textarea → use value + onChange like input
+
+
+)How do you reset a form in React?
+Reset state to initial values using setState.
+For uncontrolled forms, you can use formRef.current.reset().
+
+
+)What is form validation in React?
+Form validation ensures user input is correct before submission.
+It can be implemented using state, custom logic, or libraries.
+
+
+)Client-side vs server-side validation?
+Client-side validation happens in the browser for quick feedback.
+Server-side validation ensures data integrity and security.
+
+
+)How do libraries like react-hook-form improve performance?
+Controlled forms re-render on every input change.
+React Hook Form avoids this by updating values without triggering re-renders.
+
+
+)Why is react-hook-form often faster than controlled forms?
+It relies on uncontrolled inputs and refs, reducing unnecessary re-renders.
+This improves performance, especially in large forms.
+
+
+)What are common mistakes in form handling?
+Not using name attribute properly
+Mixing controlled and uncontrolled inputs
+Forgetting to handle onChange
+Not validating inputs before submission

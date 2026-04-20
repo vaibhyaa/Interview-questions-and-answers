@@ -1,0 +1,6 @@
+useTransition
+211. What is useTransition?
+212. What problem does useTransition solve?
+213. What is urgent vs non-urgent update?
+214. Real-world use case of useTransition?
+215. How does it improve perceived UI responsiveness?

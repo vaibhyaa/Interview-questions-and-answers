@@ -1,0 +1,21 @@
+A child component is re-rendering unnecessarily. How would you debug and fix it?
+420. Your API is being called multiple times unexpectedly. What are possible reasons?
+421. A useEffect is causing infinite API requests. How do you debug it?
+422. A large list UI becomes slow with 5,000 rows. How do you optimize it?
+423. User types in search input and UI lags badly. How would you fix it?
+424. You need to share auth state across app. Would you use Context or Redux or Zustand?
+425. A form has 50 fields and performance is poor. What approach would you use?
+426. Protected route flashes briefly before redirecting. How do you fix it?
+427. After mutation, list data is stale. How do you refresh it correctly?
+428. A modal dropdown is hidden due to parent overflow. How do you solve it?
+429. A component loses input focus on every keystroke. Why might this happen?
+430. Keys in list are wrong and form rows mix data. Explain why.
+431. Your React app bundle is too large. What optimizations would you apply?
+432. An expensive filter runs on every render. How would you optimize it?
+433. A context update causes whole app to re-render. How do you improve it?
+434. API request finishes after component unmounts. What issue occurs and how to prevent it?
+435. How do you design a reusable data table component used across multiple modules?
+436. You need role-based sidebar menus from backend permissions. How would you implement it?
+437. A user refreshes page and auth state is lost. How do you solve it?
+438. How do you handle optimistic UI update when deleting a record?
+439. How do you structure a dashboard page with filters, table, pagination, and server-side sorting?

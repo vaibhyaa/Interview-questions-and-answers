@@ -1,0 +1,6 @@
+useLayoutEffect
+195. What is useLayoutEffect?
+196. Difference between useEffect and useLayoutEffect?
+197. When should you use useLayoutEffect?
+198. Why can useLayoutEffect block painting?
+199. What are common real-world use cases for useLayoutEffect?

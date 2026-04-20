@@ -1,0 +1,5 @@
+What is React Portal?
+350. Why are portals used?
+351. Common use cases: modal, tooltip, dropdown?
+352. Does event bubbling work through portals?
+353. Why are portals useful for z-index / overflow issues?

@@ -1,0 +1,61 @@
+) What is a React component?
+react component is a javascript function or class which basically returns react element 
+A React component is a reusable piece of UI logic that returns JSX and represents part of the user interface.
+
+)what is the difference between element and a Component?
+Element:- 
+A React element is a simple object that describes what you want to see on the screen.
+It is immutable (cannot be changed)
+It represents a single DOM node
+Created using JSX or React.createElement()
+Component:-
+A React component is a function or class that returns React elements
+It is reusable
+It contains logic + UI
+It can manage state and props
+
+
+)Difference between functional and class components?
+function component :- 
+Plain JavaScript functions
+Return JSX
+Use Hooks for state/lifecycle
+Simpler and modern approach
+class component:- 
+ES6 classes extending React.Component
+Use render() method
+Use this.state and lifecycle methods
+
+
+
+)Why are functional components preferred in modern React?
+simpler
+easier to read
+easier to test
+less boilerplate
+support Hooks
+better for logic reuse (useEffect, useMemo, custom hooks)
+align with modern React features
+
+
+)What is a pure component in React?
+a pure component are the component which render the same output for the same state and props
+we can achieve this by using react.memo()
+A pure component is a component that avoids unnecessary re-renders when props/state have not changed.
+
+
+28)what is a reusable component ?
+A reusable component is a component designed to be used in multiple places with different data or behavior, usually controlled by props.
+a generic component that can be used in multiple places with configuration props 
+
+
+)What is component composition?
+Component composition means building complex UIs by combining smaller reusable components together.
+
+
+)What is the naming convention for React components?
+
+)Why is composition preferred over inheritance in React?
+
+
+)How do you design a scalable reusable component in enterprise apps?

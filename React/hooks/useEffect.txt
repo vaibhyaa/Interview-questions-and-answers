@@ -1,0 +1,221 @@
+useEffect (Super Important)
+129) What is useEffect?
+useEffect is the react hook used to handle side effect in functional component
+use cases : API calls, timers,subscriptions,event listeners, localstorage, manual dom interactions, cleanup logic 
+
+130) Why do we need useEffect?
+react component should ideally stay focused on rendering UI 
+but real application need opeartions such as : 
+fetching data . setting timers, listeneing to browser events 
+syncing with external syatems 
+useEffect gives us a safe place to perform those tasks after render, without putting side-effect logic directly inside the render phase.
+we need useEffect to perform non-rendering tasks like API calls, subscriptions, and syncing with external systems after React updates the UI
+
+
+131) What are side effects in React?
+Side effects are operations that interact with the outside world or perform work beyond returning JSX.
+API requests
+setTimeout / setInterval
+adding event listeners
+updating document.title
+reading/writing localStorage
+WebSocket subscriptions
+manually changing DOM
+
+
+
+
+132) When does useEffect run?
+useEffect runs after the component has rendered and the DOM has been updated.
+Depending on the dependency array:
+-after every render
+-only once after initial render
+-or when specific dependencies change
+
+
+133) Difference between useEffect(() => {}), useEffect(() => {}, []), and useEffect(() => {}, [dep])?
+useEffect(() => {}):Runs after every render
+useEffect(() => {}, []): runs only once after initial render 
+useEffect(() => {}, [dep])after initial render and again whenever dep changes 
+No dependency array = every render, 
+empty array = only once on mount, 
+specific dependencies = mount + whenever those dependencies change
+
+
+
+
+134) What is the dependency array?
+The dependency array is the second argument of useEffect
+which values the effect depends on
+and when the effect should re-run
+
+
+135) How does React compare dependencies?
+React compares dependencies using shallow comparison by reference, effectively using Object.is semantics for each dependency
+
+136) What happens if you omit dependency array?
+If you omit the dependency array, the effect runs after every render
+it can easily cause an infinite re-render loop
+
+
+137) What happens if you pass empty dependency array?
+If you pass [], the effect runs only once after the initial render (mount)
+
+
+138) What causes infinite loops in useEffect?
+missing dependency array
+wrong dependency array
+state update inside effect on every run
+unstable object/function dependencies recreated each render
+
+
+
+
+
+139) How do you fix infinite re-render / effect loops?
+Add correct dependency array
+Use functional updates if needed
+Avoid updating state unnecessarily inside effect
+Stabilize function/object dependencies using:
+useCallback,useMemo
+Split unrelated logic into separate effects
+
+
+
+140)  What is cleanup function in useEffect?
+A cleanup function is a function returned from useEffect that React runs to clean up side effects.
+removing event listeners
+clearing timers
+unsubscribing
+aborting API requests
+cleaning subscriptions
+
+
+
+141) When does cleanup run?
+before the effect runs again (if dependencies changed)
+when the component unmounts
+For dependency-based effects:
+old effect cleans up first
+then new effect runs
+
+
+
+142) Why is cleanup important?
+Cleanup is important because it prevents:
+memory leaks
+duplicate event listeners
+orphaned timers
+stale subscriptions
+state updates after unmount
+race conditions in async work
+
+
+
+143) How do you cancel API calls in useEffect?
+The best modern way is using AbortController with fetch
+useEffect(() => {
+  const controller = new AbortController();
+  async function fetchData() {
+    try {
+      const res = await fetch("/api/data", {
+        signal: controller.signal,
+      });
+      const data = await res.json();
+      setData(data);
+    } catch (err) {
+      if (err.name !== "AbortError") {
+        console.error(err);
+      }
+    }
+  }
+  fetchData();
+  return () => controller.abort();
+}, []);
+
+
+
+
+
+
+144) How do you avoid memory leaks in useEffect?
+To avoid memory leaks:
+clean up event listeners
+clear timers/intervals
+unsubscribe from sockets/subscriptions
+abort pending API requests
+avoid setting state after unmount
+clean up external libraries or observers
+
+
+
+
+145) Why should you not make the effect callback itself async?
+The function passed to useEffect must return either:
+nothing (undefined)
+or a cleanup function
+
+146) Best way to write async logic inside useEffect?
+useEffect(() => {
+  async function fetchData() {
+    try {
+      const res = await fetch("/api");
+      const data = await res.json();
+      setData(data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  fetchData();
+}, []);
+
+
+147) What is stale closure in useEffect?
+A stale closure happens when the effect uses an old value of state or props captured from a previous render because the dependency array is incomplete or incorrect.
+
+
+
+148. Why does ESLint warn about missing dependencies?
+The react-hooks/exhaustive-deps ESLint rule warns because your effect is using values that are not listed in the dependency array.
+the effect may use stale values
+behavior may become inconsistent
+bugs can appear in async logic, subscriptions, timers, or event handlers
+
+
+149. Should we ignore exhaustive-deps warning?
+In most cases, no.
+You should not ignore it by default.
+
+
+
+150. When is it acceptable to intentionally suppress exhaustive-deps?
+
+151. Difference between useEffect and lifecycle methods?
+In class components, side effects were spread across lifecycle methods like:
+componentDidMount
+componentDidUpdate
+componentWillUnmount
+
+useEffect(..., []) ≈ componentDidMount
+useEffect(..., [deps]) ≈ componentDidMount + componentDidUpdate
+cleanup function ≈ componentWillUnmount (and before re-run)
+useEffect replaces class lifecycle side-effect patterns by combining mount, update, and cleanup behavior in one Hook
+
+152. How do you split effects by responsibility?
+A good practice is to keep each effect focused on one responsibility instead of putting unrelated logic in one large effect.
+useEffect(() => {
+  document.title = `Count: ${count}`;
+}, [count]);
+
+useEffect(() => {
+  const controller = new AbortController();
+  fetchData(controller.signal);
+  return () => controller.abort();
+}, [userId]);
+
+useEffect(() => {
+  function handleResize() {}
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);

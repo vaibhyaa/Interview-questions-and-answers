@@ -1,0 +1,65 @@
+)What is rendering in React?
+Rendering is the process of converting React components into UI elements (React elements → real DOM).
+It happens when React calculates what should be displayed on the screen.
+
+
+)What causes a component to re-render?
+A component re-renders when its state, props, or context changes.
+It can also re-render when its parent re-renders.
+
+)Does parent re-render always cause child re-render?
+Yes, by default child components re-render when the parent re-renders.
+But this can be optimized using React.memo, useMemo, or useCallback.
+
+
+)What is the difference between re-render and re-mount?
+Re-render updates the component’s UI without destroying it.
+Re-mount completely removes and recreates the component (state resets).
+
+
+)What is reconciliation in React?
+Reconciliation is the process React uses to compare old and new Virtual DOM.
+It determines what changes are needed to update the real DOM efficiently.
+
+
+
+)What is the React Fiber architecture?
+React Fiber is the internal engine that improves rendering performance.
+It enables features like interruptible rendering and prioritization of updates.
+
+)What is virtual DOM?
+Virtual DOM is a lightweight JavaScript representation of the real DOM.
+React uses it to optimize updates and improve performance.
+
+
+
+)How is virtual DOM different from real DOM?
+Virtual DOM is fast and exists in memory, while real DOM is slower and updates the UI.
+React updates Virtual DOM first, then applies minimal changes to real DOM.
+
+
+)How does React compare old and new virtual DOM?
+React uses a diffing algorithm to compare old and new Virtual DOM trees.
+It identifies changes and updates only the affected parts.
+
+
+)What is diffing algorithm in React?
+It is the algorithm used during reconciliation to find differences between two Virtual DOM trees.
+It works efficiently using assumptions like same type elements produce similar trees.
+
+
+)How does React identify whether to update DOM nodes?
+React compares element types and keys.
+If type or key changes → re-create node; otherwise → update existing node.
+
+
+)what is event bubling ?
+the event starts at the target ele and bubbles up through parent elements 
+
+)what is event capturing ?
+the event starts as the parent ele and react to target ele 
+
+
+)what is synthetic events in react ?
+this are common synthetic events :-
+onclick, onsubmit, onKeyDown, onkeyUp ,onFocus , onBlur, onMouseEnter, onMouseLEave

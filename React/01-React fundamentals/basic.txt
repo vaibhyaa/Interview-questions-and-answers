@@ -1,0 +1,38 @@
+hr@64sqs.com
+
+
+)what is react ?
+react is an open-source javascript library used for building UI.
+it is based on components.
+it is used for handling a view layer in mvc architecture. and allows developers to create reusable Ui components
+
+
+)what are the major features of react ?
+react offers powerful set of features that have made it one of the most popular javascript lib for building UI.
+Component-based architecture:- 
+React applications are made using components 
+this are independent, re-usable pieces of code that return HTML like syntax called JSX.
+This makes the code modular, maintainable, and scalable.
+virtual Dom :-
+it is a light-weight copy of a realDOM.
+When the state changes, React updates the Virtual DOM first, then compares it with the previous version of the Virtual DOM (this process is called diffing).
+After finding the differences, React updates only the changed parts in the real DOM, making the process efficient
+JSX(javascript XMl):-
+a syntax extension that allows writing HTML like code in javascript.
+JSX makes the code more readable and expressive while providing the full power of javascript.
+Unidirectional data-flow:-
+react follows one-way data binding model where data flows from parent to child components
+this makes it easier to debug and more predictable. 
+Declarative UI :- 
+react allows you to describe what your UI should look like for given state.
+and it handles the DOM updates when the data/state changes 
+Hooks(modern features):-
+React provides Hooks (like useState, useEffect) to use state and lifecycle features in functional components without writing classes.
+
+
+
+
+
+
+
+

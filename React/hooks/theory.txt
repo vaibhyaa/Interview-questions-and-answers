@@ -1,0 +1,30 @@
+what is hooks ?
+Hooks were introduced in React 16.8.
+Hooks are special built-in functions in React that let you use state, lifecycle features, refs, context, performance optimization, etc. inside functional components without using class components
+
+
+Why Hooks were introduced?
+Hooks were introduced to solve problems with class components and to make React code simpler, reusable, and easier to maintain.
+Because class components had problems like:
+this keyword confusion
+lifecycle methods spread logic in multiple places
+harder to reuse stateful logic
+code becomes messy in large apps
+
+Hooks solve this by:
+making code cleaner
+easier to reuse logic
+better for custom hooks
+easier to test and maintain
+
+
+Why are Hooks preferred over class components?
+Interview answer:
+
+Hooks are preferred because they make components:
+easier to read
+easier to test
+easier to reuse logic
+less boilerplate
+free from this binding issues
+better organized by feature instead of lifecycle method

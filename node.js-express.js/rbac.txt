@@ -1,0 +1,22 @@
+RBAC (ROLE-BASED ACCESS CONTROL)
+
+
+1)rbac means role-based access control 
+it restricts access based on user role such as admin, manager or user 
+
+
+
+2)How is RBAC typically implemented in Express?
+auth middleware verifies the token and attaches user info to req.user 
+auth middleware checks wheather req.user.role is allowed for the route 
+
+
+
+3)What is the difference between authentication and authorization?
+authentication :- it is like who the user is 
+authorization :- what the user is allowed to do 
+
+
+Why is RBAC useful in enterprise apps?
+enterprise application usually have multiple user types with different permission.
+rbac makes access rule clear , reusable , and easier to enfore consistently across routes 

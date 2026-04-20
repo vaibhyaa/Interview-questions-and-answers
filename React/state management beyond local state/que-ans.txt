@@ -1,0 +1,9 @@
+When is local state enough?
+323. When do you need global state?
+324. What is lifted state?
+325. What is prop drilling vs state lifting?
+326. Context API vs Redux Toolkit?
+327. Zustand vs Redux vs Context?
+328. What kind of state should not go into global store?
+329. What is normalized state?
+330. How do you structure large application state?

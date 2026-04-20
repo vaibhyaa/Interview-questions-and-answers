@@ -1,0 +1,51 @@
+what is https ?
+stand for hyper text transfet protocal 
+it is a secure version of http where communication between client and server and is encrypted using ssl/tlz
+
+
+SSL IS older secrity protocal
+tls is the current protocal used by https 
+
+
+difference between http and https ?
+| HTTP                        | HTTPS                          |
+| --------------------------- | ------------------------------ |
+| Data sent in plain text     | Data encrypted                 |
+| Not secure                  | Secure                         |
+| Port 80                     | Port 443                       |
+| Vulnerable to sniffing/MITM | Protects against sniffing/MITM |
+| No certificate              | Uses SSL/TLS certificate       |
+
+
+
+
+
+What happens when you open an HTTPS website?
+browser connects to server 
+server send the tlc certificate 
+Browser verifies certificate
+Browser and server perform TLS handshake
+They agree on encryption keys
+Data is encrypted and securely transferred
+
+
+
+What is TLS Handshake?
+TLS handshake is the process where client and server establish a secure connection
+
+
+Why is HTTPS important in authentication systems?
+Answer:
+Because auth systems send:
+Passwords
+Access tokens
+Refresh tokens
+Session cookies
+Without HTTPS, attackers can steal them.
+
+
+In production, where is HTTPS usually handled?
+Nginx
+Load balancer
+Reverse proxy
+Cloud services (AWS ALB, Cloudflare, Vercel, Render, etc.)

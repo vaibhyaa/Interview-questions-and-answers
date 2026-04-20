@@ -1,0 +1,9 @@
+how are event hanlded in react ?
+what is syntheticEevnt in react ?
+difference between react events and native DOM events ?
+why we pass function reference instead of invoking function in onclink 
+how do you pass parameters in event handlers 
+what is event pooling 
+how do you prevent default behavior in react 
+how do you stop event propagation in react
+how does react event delegation work 

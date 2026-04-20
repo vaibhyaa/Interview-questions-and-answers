@@ -1,0 +1,38 @@
+restfull api :- it follows rest principles 
+REST- Representational State Transfer 
+PRINCIPLES ARE :- resource-based URLs, proper use of HTTP methods, stateless communication, and standard status codes
+
+
+1)Resource-based url :- 
+urls should represent nouns and actions 
+2)use http methods only :- 
+get,post,delet,put,patch 
+3)stateless:-
+Each request should contain all the information needed for the server to process it .
+4)standard HTTP status codes
+200 OK → success
+201 Created → created successfully
+400 Bad Request → validation error
+401 Unauthorized → no/invalid token
+403 Forbidden → authenticated but no permission
+404 Not Found
+500 Internal Server Error
+5)Consistent response structure
+
+
+GET    /api/v1/users        // get all users
+GET    /api/v1/users/:id    // get one user
+POST   /api/v1/users        // create user
+PUT    /api/v1/users/:id    // full update
+PATCH  /api/v1/users/:id    // partial update
+DELETE /api/v1/users/:id    // delete user
+
+
+
+Why is stateless important?
+Because each request is independent, making the API scalable, simple, and easier to distribute across multiple servers.
+
+stateless request ? 
+every req is independent
+sever doen not remember anything about the previous request 
+client send request -> server process it -> sever forgot everything 
